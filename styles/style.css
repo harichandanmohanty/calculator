@@ -113,7 +113,8 @@ body {
 
 @media screen and (max-width: 450px) {
     .calculator {
-      width: 300px;
+      width: 90%;
+      min-width: 250px;
     }
     
     .eachbutton {

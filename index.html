@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="/scripts/script.js" defer></script>
 </head>
 <body>
     <div class="base">
         <div class="layer">
             <div class="calculator">
-                <div class="display"></div>
+                <div class="display">
+                    <p class="input"></p>
+                    <p class="result"></p>
+                </div>
                 <div class="buttons">
                     <div class="numbers">
-                        <div class="eachbutton numbtn">C</div>
-                        <div class="eachbutton numbtn">X</div>
-                        <div class="eachbutton numbtn">%</div>
+                        <div class="eachbutton optbtn">C</div>
+                        <div class="eachbutton optbtn">&larr;</div>
+                        <div class="eachbutton optbtn" text="modulo">%</div>
                         <div class="eachbutton numbtn">1</div>
                         <div class="eachbutton numbtn">2</div>
                         <div class="eachbutton numbtn">3</div>
@@ -25,17 +29,17 @@
                         <div class="eachbutton numbtn">7</div>
                         <div class="eachbutton numbtn">8</div>
                         <div class="eachbutton numbtn">9</div>
-                        <div class="eachbutton numbtn">.</div>
+                        <div class="eachbutton point">&dot;</div>
                         <div class="eachbutton numbtn">0</div>
-                        <div class="eachbutton numbtn">=</div>
+                        <div class="eachbutton optbtn">&equals;</div>
                     </div>
 
                     <div class="operators">
-                        <div class="eachbutton optbtn">/</div>
-                        <div class="eachbutton optbtn">//</div>
-                        <div class="eachbutton optbtn">*</div>
-                        <div class="eachbutton optbtn">=</div>
-                        <div class="eachbutton optbtn">-</div>
+                        <div class="eachbutton optbtn rightbtns">&sol;</div>
+                        <div class="eachbutton optbtn rightbtns">//</div>
+                        <div class="eachbutton optbtn rightbtns">&times;</div>
+                        <div class="eachbutton optbtn rightbtns">&plus;</div>
+                        <div class="eachbutton optbtn rightbtns">&#x2D;</div>
                     </div>
                 </div>
             </div>

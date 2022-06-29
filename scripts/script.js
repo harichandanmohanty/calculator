@@ -1,4 +1,6 @@
 let factor = 10;
+let decimalfactor = 10;
+let decimalPoint = false;
 let inputValueArr = [];
 const display = document.querySelector('.input');
 const output = document.getElementsByClassName('result')[0];
@@ -14,6 +16,9 @@ for (let operatorButton of operatorButtons) {
     const value = String(operatorButton.textContent);
     operatorButton.addEventListener('click', () => { clickOperator(value); });
 }
+
+const pointButton = document.querySelector('.point');
+pointButton.addEventListener('click', () => { clickPoint();});
 
 function reset() {
     display.textContent = '';
@@ -51,12 +56,19 @@ function clickNumber(value) {
     } else if (isNaN(inputValueArr[inputValueArr.length - 1])) {
         inputValueArr.push(value);
     } else {
-        inputValueArr[inputValueArr.length - 1] = (inputValueArr[inputValueArr.length - 1] * factor) + value;
+        if (!decimalPoint) {
+            inputValueArr[inputValueArr.length - 1] = (inputValueArr[inputValueArr.length - 1] * factor) + value;
+        } else {
+            inputValueArr[inputValueArr.length - 1] = inputValueArr[inputValueArr.length - 1] + (value / decimalfactor);
+            decimalfactor = decimalfactor * 10;
+        }
     }
     display.textContent = inputValueArr.join(' ');
 }
 
 function clickOperator(value) {
+    decimalPoint = false;
+    decimalfactor = 10;
     if (output.textContent !== '') {
         reset();
     }
@@ -76,6 +88,14 @@ function clickOperator(value) {
         inputValueArr.push(value);
     }
     display.textContent = inputValueArr.join(' ');
+}
+
+function clickPoint() {
+    decimalPoint = true;
+    if (isNaN(inputValueArr[inputValueArr.length - 1])) {
+        inputValueArr.push(0);
+    }
+    display.textContent = inputValueArr.join(' ') + '.';
 }
 
 function clickBack() {
